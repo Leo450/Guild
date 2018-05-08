@@ -1,0 +1,44 @@
+@import "../base/colors";
+
+.bloc{
+	min-width:20em;
+	padding:1em;
+	margin:2em 0;
+	background-color:@black-dark;
+	color:@white-default;
+	border-radius:5px;
+
+	.bloc-head{
+		display:flex;
+		align-items:center;
+
+		.back-button{
+			margin-right:1em;
+		}
+		.actions{
+			flex-grow:2;
+			display:flex;
+			justify-content:flex-end;
+
+			a{
+				margin-left:.5em;
+			}
+		}
+		.btn{
+			padding:.5em!important;
+		}
+	}
+
+	.bloc-inset{
+		padding:1em;
+		margin-left:-1em;
+		margin-right:-1em;
+	}
+
+	.bloc-inset-top{
+		margin-top:-1em!important;
+	}
+	.bloc-inset-bottom{
+		margin-bottom:-1em!important;
+	}
+}

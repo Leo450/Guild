@@ -1,0 +1,79 @@
+@import "../base/colors";
+
+form{
+
+	> div > div{
+		position:relative;
+		display:block;
+		margin-bottom:1.5em;
+	}
+
+	label{
+		display:block;
+		margin-bottom:.5em;
+		font-weight:500;
+		font-size:.7em;
+		color:#999999;
+	}
+
+	input:not([type="checkbox"]), select, button{
+		width:100%;
+		font-family:whitney;
+	}
+
+	input, button:not(.form-link){
+		padding:.5em 0;
+		background-color:transparent;
+		border:none;
+		color:#ffffff;
+	}
+	input{
+		margin-bottom:1px;
+		border-bottom:1px solid @black-light;
+
+		&:focus{
+			margin-bottom:0;
+			border-bottom:2px solid @white-lighter;
+		}
+	}
+
+	select{
+		border:1px solid @black;
+		background-color:@black-light;
+		color:@white-light;
+		border-radius:3px;
+		text-shadow: 0 0 0 #000;
+
+		&[multiple]{
+			height:8em;
+			font-size:.7em;
+
+			option{
+				padding:1em;
+
+				&[selected]{
+					background-color:@black-darker;
+				}
+			}
+		}
+		&:not([multiple]){
+			padding:1em;
+		}
+	}
+
+	.form-link{
+		display:block;
+		padding:0;
+		margin-top:.5em;
+		border:none;
+		background-color:transparent;
+		color:@white-default;
+		font-weight:500;
+		text-align:right;
+	}
+
+	.error{
+		color:@red;
+	}
+
+}

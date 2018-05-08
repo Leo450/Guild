@@ -1,0 +1,53 @@
+@import "../base/colors";
+
+.logo{
+	position:relative;
+	display:inline-block;
+	width:2em;
+	height:2em;
+	border-radius:999px;
+	background-color:@blue;
+	font-size:3em;
+
+	> i, > img{
+		position:absolute;
+		top:50%;
+		left:50%;
+		-webkit-transform:translateX(-50%) translateY(-50%);
+		-moz-transform:translateX(-50%) translateY(-50%);
+		-ms-transform:translateX(-50%) translateY(-50%);
+		-o-transform:translateX(-50%) translateY(-50%);
+		transform:translateX(-50%) translateY(-50%);
+	}
+
+	> i{
+		color:@white-lighter;
+	}
+
+	> img{
+		border-radius:999px;
+	}
+
+	&.logo-thumbnail{
+		background-color:@black-softer;
+
+		.icons{
+			position:absolute;
+			width:100%;
+			left:0;
+			bottom:0;
+			display:flex;
+			justify-content:flex-end;
+
+			img{
+				border:4px solid @black-softer;
+				border-radius:999px;
+				-webkit-transform:translateY(25%);
+				-moz-transform:translateY(25%);
+				-ms-transform:translateY(25%);
+				-o-transform:translateY(25%);
+				transform:translateY(25%);
+			}
+		}
+	}
+}

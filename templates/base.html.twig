@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="/assets/lib/fontawesome/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <main class="layout-flex__main">
+            <div class="bloc">
+                {% block body %}{% endblock %}
+            </div>
+        </main>
+        <script src="/assets/lib/jquery/jquery.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

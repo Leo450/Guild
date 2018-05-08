@@ -1,0 +1,39 @@
+@import "../base/colors";
+
+.menu{
+	.section{
+		border-bottom:1px solid @black-light;
+
+		&:last-child{
+			margin-bottom:0;
+			border-bottom:none;
+		}
+
+		.title{
+			color:@white-dark;
+			text-transform:uppercase;
+			font-weight:500;
+
+			+ .items{
+				margin-top:.5em;
+			}
+		}
+
+		.items{
+			margin-bottom:-1em;
+
+			.item{
+				a{
+					display:block;
+					padding:1em 0;
+					color:@white-default;
+
+					i{
+						width:1em;
+						margin-right:1.5em;
+					}
+				}
+			}
+		}
+	}
+}

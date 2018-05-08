@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <div class="bloc-head bloc-inset bloc-inset-top bg-grey-darker">
+        <a href="{{ history.getPrevious() is null ? path("front_index") : path(history.getPrevious().name, history.getPrevious().params) }}" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="title-main">New User</h1>
+    </div>
+
+    <div class="bloc-inset bloc-inset-bottom">
+        {{ include('user/_form.html.twig') }}
+    </div>
+{% endblock %}

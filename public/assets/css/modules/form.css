@@ -1,0 +1,84 @@
+.bg-grey-darker {
+  background-color: #1b1b1d;
+}
+.bg-grey-dark {
+  background-color: #202225;
+}
+.bg-grey-soft {
+  background-color: #2A2C31;
+}
+.bg-grey-softer {
+  background-color: #2F3136;
+}
+.bg-grey-light {
+  background-color: #36393E;
+}
+.bg-blue {
+  background-color: #7289DA;
+}
+form > div > div {
+  position: relative;
+  display: block;
+  margin-bottom: 1.5em;
+}
+form label {
+  display: block;
+  margin-bottom: .5em;
+  font-weight: 500;
+  font-size: .7em;
+  color: #999999;
+}
+form input:not([type="checkbox"]),
+form select,
+form button {
+  width: 100%;
+  font-family: whitney;
+}
+form input,
+form button:not(.form-link) {
+  padding: .5em 0;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+}
+form input {
+  margin-bottom: 1px;
+  border-bottom: 1px solid #36393E;
+}
+form input:focus {
+  margin-bottom: 0;
+  border-bottom: 2px solid #ffffff;
+}
+form select {
+  border: 1px solid #000000;
+  background-color: #36393E;
+  color: #A9AAAC;
+  border-radius: 3px;
+  text-shadow: 0 0 0 #000;
+}
+form select[multiple] {
+  height: 8em;
+  font-size: .7em;
+}
+form select[multiple] option {
+  padding: 1em;
+}
+form select[multiple] option[selected] {
+  background-color: #1b1b1d;
+}
+form select:not([multiple]) {
+  padding: 1em;
+}
+form .form-link {
+  display: block;
+  padding: 0;
+  margin-top: .5em;
+  border: none;
+  background-color: transparent;
+  color: #797B7F;
+  font-weight: 500;
+  text-align: right;
+}
+form .error {
+  color: #F04544;
+}

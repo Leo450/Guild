@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit member{% endblock %}
+
+{% block body %}
+
+    <div class="bloc-head bloc-inset bloc-inset-top bg-grey-darker">
+        <a href="{{ history.getPrevious() is null ? path("front_index") : path(history.getPrevious().name, history.getPrevious().params) }}" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="title-main">Edit Member {{ member.name }}</h1>
+        {% if member.user %}
+            <div class="actions">
+                <a href="{{ path('user_edit', {'id': member.user.id}) }}" class="btn">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="bloc-inset bloc-inset-bottom">
+        {{ include('member/_form.html.twig', {'button_label': 'Update'}) }}
+        {% if is_granted('ROLE_ADMIN') %}
+            {{ include('member/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
+
+{% endblock %}

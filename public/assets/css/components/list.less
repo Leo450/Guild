@@ -1,0 +1,56 @@
+@import "../base/colors";
+
+.list{
+	margin-left:-1em;
+	margin-right:-1em;
+
+	> .title{
+		padding:1em;
+		text-transform:uppercase;
+		font-weight:500;
+		color:@white-light;
+	}
+
+	.list-item{
+		position:relative;
+		display:flex;
+		padding:1em;
+		border-bottom:1px solid @black-light;
+
+		.body{
+			flex-grow:2;
+			display:flex;
+
+			> img{
+				margin-right:1em;
+			}
+
+			.content{
+				flex-grow:2;
+
+				.title{
+					display:block;
+					margin-bottom:.5em;
+					color:@white-light;
+					font-weight:500;
+				}
+			}
+
+		}
+
+		.side{
+			display:flex;
+			align-items:center;
+
+			a{
+				margin-left:1em;
+				color:@white-default;
+			}
+		}
+
+	}
+
+	&:last-child .list-item:last-child{
+		border-bottom:none;
+	}
+}

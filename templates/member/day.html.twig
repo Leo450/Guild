@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member List{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/pages/member/index.css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="bloc-head bloc-inset bloc-inset-top bg-grey-darker">
+        <a href="{{ history.getPrevious() is null ? path("front_index") : path(history.getPrevious().name, history.getPrevious().params) }}" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="title-main">Member list by day</h1>
+    </div>
+
+    <div class="bloc-inset">
+        <form action="{{ path('member_day') }}" method="post">
+            <div>
+                <label for="day">For which day ?</label>
+                <select id="day" name="day">
+                    <option value=""></option>
+                    <option value="0"{% if day != null and day == 0 %} selected{% endif %}>Lundi</option>
+                    <option value="1"{% if day == 1 %} selected{% endif %}>Mardi</option>
+                    <option value="2"{% if day == 2 %} selected{% endif %}>Mercredi</option>
+                    <option value="3"{% if day == 3 %} selected{% endif %}>Jeudi</option>
+                    <option value="4"{% if day == 4 %} selected{% endif %}>Vendredi</option>
+                    <option value="5"{% if day == 5 %} selected{% endif %}>Samedi</option>
+                    <option value="6"{% if day == 6 %} selected{% endif %}>Dimanche</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    {% if members %}
+        <ul class="list bloc-inset-bottom">
+            {% for member in members %}
+                <li class="list-item">
+                    <div class="body">
+                        <img src="https://render-eu.worldofwarcraft.com/character/{{ member.thumbnail }}">
+                        <div class="content">
+                            <div class="title">
+                                {{ member.name }}
+                            </div>
+                            <img src="https://render-eu.worldofwarcraft.com/icons/18/class_{{ member.class }}.jpg">
+                            <img src="https://render-eu.worldofwarcraft.com/icons/18/race_{{ member.race }}_{{ member.gender }}.jpg">
+                        </div>
+                    </div>
+                    <div class="side">
+                        <a href="{{ path('member_edit', {'id': member.id}) }}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% elseif day != null %}
+        No records found.
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $('select').change(function(){
+            $(this).parents('form').submit();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/pages/front/index.css">
+{% endblock %}
+
+{% block body %}
+    <div class="bloc-inset-logo bloc-inset bloc-inset-top bg-grey-darker">
+        {% if user.member %}
+            <div class="logo logo-thumbnail">
+                <img src="https://render-eu.worldofwarcraft.com/character/{{ user.member.thumbnail }}">
+                <div class="icons">
+                    <img src="https://render-eu.worldofwarcraft.com/icons/18/race_{{ user.member.race }}_{{ user.member.gender }}.jpg">
+                    <img src="https://render-eu.worldofwarcraft.com/icons/18/class_{{ user.member.class }}.jpg">
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="title-main">{{ user.member.name }}</div>
+        {% else %}
+            <div class="logo">
+                <i class="fas fa-chess-knight"></i>
+            </div>
+        {% endif %}
+    </div>
+    <div class="bloc-inset bloc-inset-top bloc-inset-bottom">
+        <div class="menu">
+            <div class="section bloc-inset">
+                <div class="title">Paramètres</div>
+                <ul class="items">
+                    <li class="item">
+                        <a href="{{ path("user_edit", {"id": user.id}) }}">
+                            <i class="fas fa-user-circle"></i> Mon compte
+                        </a>
+                    </li>
+                    {% if user.member %}
+                    <li class="item">
+                        <a href="{{ path("member_edit", {"id": user.member.id}) }}">
+                            <i class="fas fa-chess-bishop"></i> Mon personnage
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            {% if is_granted('ROLE_ADMIN') %}
+
+                <div class="section bloc-inset">
+                    <div class="title">Users</div>
+                    <ul class="items">
+                        <li class="item">
+                            <a href="{{ path("user_index") }}">
+                                <i class="fas fa-list"></i> Liste
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="{{ path("user_new") }}">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section bloc-inset">
+                    <div class="title">Members</div>
+                    <ul class="items">
+                        <li class="item">
+                            <a href="{{ path("member_index") }}">
+                                <i class="fas fa-list"></i> Liste
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="{{ path("member_day") }}">
+                                <i class="fas fa-calendar-alt"></i> By day
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="{{ path("member_new") }}">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            {% endif %}
+
+            <div class="section bloc-inset">
+                <ul class="items">
+                    <li class="item">
+                        <a href="{{ path("logout") }}" class="link-logout">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+    <div class="bloc-head bloc-inset bloc-inset-top bg-grey-darker">
+        <a href="{{ history.getPrevious() is null ? path("front_index") : path(history.getPrevious().name, history.getPrevious().params) }}" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="title-main">User list</h1>
+        <div class="actions">
+            <a href="{{ path('user_new') }}" class="btn">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+    </div>
+
+    <ul class="list bloc-inset-bottom">
+        {% for user in users %}
+            <li class="list-item">
+                <div class="body">
+                    {{ user.username }}
+                </div>
+                <div class="side">
+                    {% if user.member %}
+                        <a href="{{ path('member_edit', {'id': user.member.id}) }}">
+                            <i class="fas fa-chess-bishop"></i>
+                        </a>
+                    {% endif %}
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

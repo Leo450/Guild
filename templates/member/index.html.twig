@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member List{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/pages/member/index.css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="bloc-head bloc-inset bloc-inset-top bg-grey-darker">
+        <a href="{{ history.getPrevious() is null ? path("front_index") : path(history.getPrevious().name, history.getPrevious().params) }}" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="title-main">Member list</h1>
+        <div class="actions">
+            <a href="{{ path('member_update_check') }}" class="btn">
+                <i class="fas fa-sync-alt"></i>
+            </a>
+            <a href="{{ path('member_new') }}" class="btn">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+    </div>
+
+    {% if members %}
+        <ul class="list bloc-inset-bottom">
+            {% for member in members %}
+                <li class="list-item">
+                    <div class="body">
+                        <img src="https://render-eu.worldofwarcraft.com/character/{{ member.thumbnail }}">
+                        <div class="content">
+                            <div class="title">
+                                {{ member.name }}
+                            </div>
+                            <img src="https://render-eu.worldofwarcraft.com/icons/18/class_{{ member.class }}.jpg">
+                            <img src="https://render-eu.worldofwarcraft.com/icons/18/race_{{ member.race }}_{{ member.gender }}.jpg">
+                        </div>
+                    </div>
+                    <div class="side">
+                        {% if member.user %}
+                            <a href="{{ path('user_edit', {'id': member.user.id}) }}">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        {% endif %}
+                        <a href="{{ path('member_edit', {'id': member.id}) }}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="bloc-inset bloc-inset-bottom">
+            No records found.
+        </div>
+    {% endif %}
+{% endblock %}

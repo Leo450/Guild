@@ -1,0 +1,23 @@
+.bg-grey-darker {
+  background-color: #1b1b1d;
+}
+.bg-grey-dark {
+  background-color: #202225;
+}
+.bg-grey-soft {
+  background-color: #2A2C31;
+}
+.bg-grey-softer {
+  background-color: #2F3136;
+}
+.bg-grey-light {
+  background-color: #36393E;
+}
+.bg-blue {
+  background-color: #7289DA;
+}
+.btn {
+  padding: 1em!important;
+  background-color: #7289DA !important;
+  border-radius: 3px;
+}

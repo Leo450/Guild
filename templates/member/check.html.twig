@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member update check{% endblock %}
+
+{% block body %}
+
+    <div class="bloc-head bloc-inset bloc-inset-top bg-grey-darker">
+        <a href="{{ history.getPrevious() is null ? path("front_index") : path(history.getPrevious().name, history.getPrevious().params) }}" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="title-main">Member update check</h1>
+    </div>
+
+    {% if members_names_to_add or members_names_to_remove %}
+
+        {% if members_names_to_add %}
+            <ul class="list bloc-inset-bottom">
+                <div class="title">Members to add</div>
+                {% for member_name_to_add in members_names_to_add %}
+                    <li class="list-item">
+                        <div class="body">
+                            <div class="content">
+                                {{ member_name_to_add }}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if members_names_to_remove %}
+            <ul class="list bloc-inset-bottom">
+                <div class="title">Members to delete</div>
+                {% for member_name_to_remove in members_names_to_remove %}
+                    <li class="list-item">
+                        <div class="body">
+                            <div class="content">
+                                {{ member_name_to_remove }}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <br>
+        <br>
+
+        <form action="{{ path("member_update") }}" method="post">
+            <input type="hidden" name="api_response" value="{{ api_response }}">
+            <input type="hidden" name="members_names_to_add" value="{{ members_names_to_add|json_encode() }}">
+            <input type="hidden" name="members_names_to_remove" value="{{ members_names_to_remove|json_encode() }}">
+            <div>
+                <label for="create_account">Create account for new Member</label>
+                <input type="checkbox" id="create_account" name="create_account">
+            </div>
+            <br>
+            <button class="btn">Validate</button>
+        </form>
+
+    {% else %}
+        <div class="bloc-inset bloc-inset-bottom">
+            Nothing to update.
+        </div>
+    {% endif %}
+
+{% endblock %}

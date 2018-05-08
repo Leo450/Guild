@@ -1,0 +1,55 @@
+.bg-grey-darker {
+  background-color: #1b1b1d;
+}
+.bg-grey-dark {
+  background-color: #202225;
+}
+.bg-grey-soft {
+  background-color: #2A2C31;
+}
+.bg-grey-softer {
+  background-color: #2F3136;
+}
+.bg-grey-light {
+  background-color: #36393E;
+}
+.bg-blue {
+  background-color: #7289DA;
+}
+.bloc {
+  min-width: 20em;
+  padding: 1em;
+  margin: 2em 0;
+  background-color: #202225;
+  color: #797B7F;
+  border-radius: 5px;
+}
+.bloc .bloc-head {
+  display: flex;
+  align-items: center;
+}
+.bloc .bloc-head .back-button {
+  margin-right: 1em;
+}
+.bloc .bloc-head .actions {
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+.bloc .bloc-head .actions a {
+  margin-left: .5em;
+}
+.bloc .bloc-head .btn {
+  padding: .5em!important;
+}
+.bloc .bloc-inset {
+  padding: 1em;
+  margin-left: -1em;
+  margin-right: -1em;
+}
+.bloc .bloc-inset-top {
+  margin-top: -1em !important;
+}
+.bloc .bloc-inset-bottom {
+  margin-bottom: -1em !important;
+}
